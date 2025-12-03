@@ -8,6 +8,7 @@ starship
 neovim
 zoxide
 stow
+eza
 
 # -----------------------------
 # GUI apps (casks)

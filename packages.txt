@@ -1,0 +1,17 @@
+# -----------------------------
+# Homebrew packages (formulae)
+# -----------------------------
+
+ripgrep
+fd
+starship
+neovim
+zoxide
+stow
+
+# -----------------------------
+# GUI apps (casks)
+# -----------------------------
+cask:ghostty
+cask:raycast
+

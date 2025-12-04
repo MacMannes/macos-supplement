@@ -15,4 +15,5 @@ eza
 # -----------------------------
 cask:ghostty
 cask:raycast
+cask:nikitabobko/tap/aerospace
 

@@ -1,6 +1,12 @@
-# -----------------------------
+# -------------------------------
+# Taps (Thirth party repostories)
+# -------------------------------
+tap:FelixKratz/formulae
+
+
+# -------------------------------
 # Homebrew packages (formulae)
-# -----------------------------
+# -------------------------------
 
 ripgrep
 fd
@@ -9,11 +15,16 @@ neovim
 zoxide
 stow
 eza
+leader-key
+sketchybar
+borders
 
-# -----------------------------
+
+# -------------------------------
 # GUI apps (casks)
-# -----------------------------
+# -------------------------------
 cask:ghostty
 cask:raycast
 cask:nikitabobko/tap/aerospace
+cask:karabiner-elements
 

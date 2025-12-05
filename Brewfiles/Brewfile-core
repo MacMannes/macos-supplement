@@ -17,4 +17,5 @@ cask 'nikitabobko/tap/aerospace'
 cask 'karabiner-elements'
 cask 'leader-key'
 cask '1password'
+cask 'zoom'
 

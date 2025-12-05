@@ -54,5 +54,6 @@ run_script "./install-gum.sh" "Installing gum"
 # gum installed, safe to use UI
 run_script "./select-brewfiles.sh" "Selecting Brew profiles"
 run_script "./install-brewfiles.sh" "Installing selected brew packages"
+run_script "./install-dotfiles.sh" "Installing dotfiles"
 
 ok "All done 🎉"

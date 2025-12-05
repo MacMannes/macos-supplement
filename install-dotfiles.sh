@@ -3,20 +3,28 @@
 REPO_URL="https://github.com/MacMannes/dotfiles.git"
 REPO_NAME="dotfiles"
 
+source ./colors.sh
+source ./functions.sh
+
+ORIGINAL_DIR=$(pwd)
+
 clone_or_update() {
+    run cd ~ || exit 1
     if [[ -d "$REPO_NAME" ]]; then
-        log_info "Repo exists → pulling updates"
-        log_cmd "(cd $REPO_NAME && git pull)"
+        info §"Repo exists → pulling updates"
+        run log_cmd "(cd $REPO_NAME && git pull)"
     else
-        log_info "Cloning dotfiles repo"
-        log_cmd git clone "$REPO_URL"
+        info "Cloning dotfiles repo"
+        run git clone "$REPO_URL"
     fi
 }
 
 clone_or_update
-cd "$REPO_NAME" || exit 1
+run cd "$REPO_NAME" || exit 1
 
-log_cmd stow zshrc
-log_cmd stow nvim
-log_cmd stow ghostty
-log_cmd stow starship
+run stow zshrc
+run stow nvim
+run stow ghostty
+run stow starship
+
+run cd $ORIGINAL_DIR

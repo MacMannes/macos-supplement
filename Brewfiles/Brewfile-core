@@ -10,9 +10,11 @@ brew 'eza'
 brew 'sketchybar'
 brew 'borders'
 brew 'lazygit'
+brew 'gh'
 
 cask 'ghostty'
 cask 'nikitabobko/tap/aerospace'
 cask 'karabiner-elements'
 cask 'leader-key'
+cask '1password'
 

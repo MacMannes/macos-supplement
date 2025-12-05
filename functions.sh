@@ -1,37 +1,62 @@
 #!/bin/bash
-# Generic helper functions
 
-# Log messages with descriptive color
-# Usage: log "Message" type
-# type: info, success, warn, error, tap, formula, cask
-log() {
-    local msg="$1"
-    local type="$2"
+# dependency: source colors.sh first!
 
-    case "$type" in
-    success) echo -e "${success_message}${msg}${reset_color}" ;;
-    warn) echo -e "${warning_message}${msg}${reset_color}" ;;
-    error) echo -e "${error_message}${msg}${reset_color}" ;;
-    tap) echo -e "${tap_message}${msg}${reset_color}" ;;
-    formula) echo -e "${formula_message}${msg}${reset_color}" ;;
-    cask) echo -e "${cask_message}${msg}${reset_color}" ;;
-    step) echo -e "${arrow}==>${reset_color} ${info_message}${msg}${reset_color}" ;;
-    info | *) echo -e "${info_message}${msg}${reset_color}" ;;
-    esac
+__STEP_START_TIME=0
+__CURRENT_STEP_NAME=""
+
+msg() {
+    echo -e "${dim}$1${reset}"
 }
 
-# Execute a command, respecting dry-run mode
-# Usage: run command args...
+ok() {
+    echo -e "${green}✔${reset} $1"
+}
+
+warn() {
+    echo -e "${yellow}⚠${reset} $1"
+}
+
+step() {
+    __CURRENT_STEP_NAME="$1"
+    __STEP_START_TIME=$(date +%s)
+
+    echo -e "${cyan}➤${reset} ${bold}${__CURRENT_STEP_NAME}${reset}"
+}
+
+done_step() {
+    local end
+    end=$(date +%s)
+    local elapsed=$((end - __STEP_START_TIME))
+
+    echo -e "${green}✔${reset} ${bold}${__CURRENT_STEP_NAME}${reset} ${dim}(${elapsed}s)${reset}"
+    echo
+}
+
 run() {
-    local cmd="$*"
-    if [[ $DRY_RUN -eq 1 ]]; then
-        log "[DRY-RUN] $cmd" info
-    else
-        eval "$cmd"
+    echo -e "${dim}$@$reset"
+    "$@"
+    local status=$?
+    if [ $status -ne 0 ]; then
+        warn "Command failed: $*"
+        exit $status
     fi
 }
 
-# Check if dry-run mode is active
-dry_run() {
-    [[ "$DRY_RUN" -eq 1 ]]
+run_script() {
+    local script="$1"
+    local label="$2"
+
+    if [[ ! -f "$script" ]]; then
+        warn "Script not found: $script"
+        exit 1
+    fi
+
+    if [[ -z "$label" ]]; then
+        label="$script"
+    fi
+
+    step "$label"      # start step
+    run bash "$script" # execute script
+    done_step          # end step with elapsed time
 }

@@ -1,66 +1,58 @@
 #!/bin/bash
 
-# Load shared colors and functions
 source ./colors.sh
 source ./functions.sh
 
-# -----------------------------
-# Unified color legend
-# -----------------------------
-print_legend() {
-    echo ""
-    echo "Usage: $0 [--dry-run] [--upgrade] [--reinstall] [--help]"
-    echo ""
-    echo -e "${info_message}Info message${reset_color}     - general updates and notices"
-    echo -e "${success_message}Success message${reset_color}  - successful installs or upgrades"
-    echo -e "${warning_message}Warning message${reset_color}  - already installed or minor warnings"
-    echo -e "${error_message}Error message${reset_color}    - failed commands"
-    echo -e "${tap_message}Tap message${reset_color}      - brew taps"
-    echo -e "${formula_message}Formula message${reset_color}  - brew formula installs/upgrades"
-    echo -e "${cask_message}Cask message${reset_color}     - brew cask installs/upgrades"
-    echo ""
-}
-
-# -----------------------------
-# Parse arguments
-# -----------------------------
+########################################
+# ARGUMENT PARSING
+########################################
 DRY_RUN=0
-UPGRADE=0
-REINSTALL=0
 SHOW_HELP=0
-SCRIPT_ARGS=()
 
 for arg in "$@"; do
     case "$arg" in
-    --dry-run)
-        DRY_RUN=1
-        SCRIPT_ARGS+=("--dry-run")
-        ;;
-    --upgrade)
-        UPGRADE=1
-        SCRIPT_ARGS+=("upgrade")
-        ;;
-    --reinstall)
-        REINSTALL=1
-        SCRIPT_ARGS+=("reinstall")
-        ;;
+    --dry-run) DRY_RUN=1 ;;
     --help) SHOW_HELP=1 ;;
-    *) log "Unknown argument: $arg" warn ;;
+    *)
+        warn "Unknown argument: $arg"
+        ;;
     esac
 done
 
-# Show legend and exit if --help
-if [[ $SHOW_HELP -eq 1 ]]; then
-    print_legend
+########################################
+# HELP / LEGEND
+########################################
+print_help() {
+    echo
+    echo -e "${bold}Available arguments:${reset}"
+    echo "  --dry-run     Show what would happen, without doing anything"
+    echo "  --help        Show this help"
+    echo
+    echo -e "${bold}Legend:${reset}"
+    echo -e "${cyan}➤${reset} step"
+    echo -e "${green}✔${reset} ok"
+    echo -e "${yellow}⚠${reset} warning"
+    echo
+}
+
+if [ $SHOW_HELP -eq 1 ]; then
+    print_help
     exit 0
 fi
 
-# Dry-run message
-[[ $DRY_RUN -eq 1 ]] && log "=== DRY RUN: no changes will be made ===" warn
+########################################
+# Pass dry-run flag to child scripts
+########################################
+export DRY_RUN
 
-# -----------------------------
-# Run scripts sequentially
-# -----------------------------
-./install-brew.sh "${SCRIPT_ARGS[@]}"
-./install-brew-packages.sh "${SCRIPT_ARGS[@]}"
-./install-dotfiles.sh "${SCRIPT_ARGS[@]}"
+########################################
+# RUN SCRIPTS SEQUENTIALLY
+########################################
+run_script "./install-brew.sh" "Installing Homebrew"
+run_script "./install-gum.sh" "Installing gum"
+
+# gum installed, safe to use UI
+run_script "./select-brewfiles.sh" "Selecting Brew profiles"
+run_script "./install-brewfiles.sh" "Installing selected brew packages"
+
+ok "All done 🎉"

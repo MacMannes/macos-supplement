@@ -1,12 +1,14 @@
 #!/bin/bash
-# Generic color definitions
 
-info_message="\033[1m"       # bold default foreground (adaptive-safe)
-success_message="\033[0;32m" # green
-warning_message="\033[0;33m" # yellow
-error_message="\033[0;31m"   # red
-tap_message="\033[0;34m"     # blue
-formula_message="\033[0;36m" # cyan
-cask_message="\033[0;35m"    # magenta
-arrow="\033[0;34m"           # bright cyan
-reset_color="\033[0m"
+# text styles
+bold="\033[1m"
+dim="\033[2m"
+reset="\033[0m"
+
+# colors
+red="\033[31m"
+green="\033[32m"
+yellow="\033[33m"
+blue="\033[34m"
+magenta="\033[35m"
+cyan="\033[36m"

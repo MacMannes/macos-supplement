@@ -1,0 +1,18 @@
+tap 'felixkratz/formulae' || true
+
+brew 'ripgrep'
+brew 'fd'
+brew 'starship'
+brew 'neovim'
+brew 'zoxide'
+brew 'stow'
+brew 'eza'
+brew 'sketchybar'
+brew 'borders'
+
+cask 'ghostty'
+cask 'nikitabobko/tap/aerospace'
+cask 'karabiner-elements'
+cask 'chatgpt'
+cask 'leader-key'
+

@@ -11,8 +11,8 @@ ORIGINAL_DIR=$(pwd)
 clone_or_update() {
     run cd ~ || exit 1
     if [[ -d "$REPO_NAME" ]]; then
-        info §"Repo exists → pulling updates"
-        run log_cmd "(cd $REPO_NAME && git pull)"
+        msg "Repo exists → pulling updates"
+        run cd $REPO_NAME && git pull
     else
         info "Cloning dotfiles repo"
         run git clone "$REPO_URL"
@@ -20,7 +20,7 @@ clone_or_update() {
 }
 
 clone_or_update
-run cd "$REPO_NAME" || exit 1
+run cd ~/$REPO_NAME || exit 1
 
 run stow zshrc
 run stow nvim

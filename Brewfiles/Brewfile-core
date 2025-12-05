@@ -1,4 +1,4 @@
-tap 'felixkratz/formulae' || true
+tap 'Felixkratz/formulae'
 
 brew 'ripgrep'
 brew 'fd'
@@ -9,10 +9,10 @@ brew 'stow'
 brew 'eza'
 brew 'sketchybar'
 brew 'borders'
+brew 'lazygit'
 
 cask 'ghostty'
 cask 'nikitabobko/tap/aerospace'
 cask 'karabiner-elements'
-cask 'chatgpt'
 cask 'leader-key'
 

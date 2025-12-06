@@ -19,4 +19,5 @@ cask 'karabiner-elements'
 cask 'leader-key'
 cask '1password'
 cask 'zoom'
+cask 'font-hack-nerd-font'
 

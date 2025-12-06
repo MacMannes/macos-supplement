@@ -26,5 +26,7 @@ run stow zshrc
 run stow nvim
 run stow ghostty
 run stow starship
+run stow aerospace
+run stow borders
 
 run cd $ORIGINAL_DIR

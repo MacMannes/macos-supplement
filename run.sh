@@ -3,6 +3,8 @@
 source ./colors.sh
 source ./functions.sh
 
+export ROOT_DIR="$(pwd)"
+
 ########################################
 # ARGUMENT PARSING
 ########################################
@@ -52,8 +54,8 @@ run_script "./install-brew.sh" "Installing Homebrew"
 run_script "./install-gum.sh" "Installing gum"
 
 # gum installed, safe to use UI
-run_script "./select-brewfiles.sh" "Selecting Brew profiles"
-run_script "./install-brewfiles.sh" "Installing selected brew packages"
+run_script "./select-profiles.sh" "Selecting profiles"
+run_script "./install-profiles.sh" "Installing selected profiles"
 run_script "./install-dotfiles.sh" "Installing dotfiles"
 
 ok "All done 🎉"

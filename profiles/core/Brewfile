@@ -15,6 +15,7 @@ brew 'gh'
 brew 'zsh-syntax-highlighting'
 brew 'zsh-autocomplete'
 brew 'zsh-autosuggestions'
+brew 'mas'
 
 cask 'ghostty'
 cask 'nikitabobko/tap/aerospace'
@@ -24,3 +25,4 @@ cask '1password'
 cask 'zoom'
 cask 'font-hack-nerd-font'
 
+mas 'Color Picker', id: 1545870783

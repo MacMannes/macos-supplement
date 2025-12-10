@@ -28,5 +28,6 @@ run stow ghostty
 run stow starship
 run stow aerospace
 run stow borders
+run stow leaderkey
 
 run cd $ORIGINAL_DIR

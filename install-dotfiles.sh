@@ -29,5 +29,6 @@ run stow starship
 run stow aerospace
 run stow borders
 run stow leaderkey
+run stow karabiner
 
 run cd $ORIGINAL_DIR

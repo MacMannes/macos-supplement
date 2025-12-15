@@ -1,3 +1,6 @@
 brew 'uv'
+brew 'colima'
+brew 'docker'
+brew 'lazydocker'
 
 cask 'jetbrains-toolbox'

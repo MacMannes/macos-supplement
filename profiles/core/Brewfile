@@ -15,6 +15,7 @@ brew 'gh'
 brew 'mas'
 brew 'antidote'
 brew 'fzf'
+brew 'bat'
 
 cask 'ghostty'
 cask 'nikitabobko/tap/aerospace'

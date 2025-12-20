@@ -22,7 +22,7 @@ clone_or_update() {
 clone_or_update
 run cd ~/$REPO_NAME || exit 1
 
-run stow zshrc
+run stow zsh
 run stow nvim
 run stow ghostty
 run stow starship

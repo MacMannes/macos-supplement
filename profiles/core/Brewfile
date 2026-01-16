@@ -17,6 +17,7 @@ brew 'antidote'
 brew 'fzf'
 brew 'bat'
 brew 'fastfetch'
+brew 'anomalyco/tap/opencode'
 
 cask 'ghostty'
 cask 'nikitabobko/tap/aerospace'

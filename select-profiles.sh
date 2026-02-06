@@ -18,8 +18,12 @@ if [[ -f "$CACHE_FILE" ]]; then
 fi
 
 # Ask user for selection
+DEFAULT_SELECTION_STR=$(
+    IFS=,
+    echo "${DEFAULT_SELECTION[*]}"
+)
 SELECTED=$(printf "%s\n" "${AVAILABLE_PROFILES[@]}" |
-    gum choose --no-limit --header "Select Brewfile profiles" --selected="$(printf "%s\n" "${DEFAULT_SELECTION[@]}")")
+    gum choose --no-limit --header "Select Brewfile profiles" --selected="$DEFAULT_SELECTION_STR")
 
 # Convert selected string to array
 SELECTED_PROFILES=()
@@ -28,4 +32,5 @@ while IFS= read -r line || [[ -n "$line" ]]; do
 done <<<"$SELECTED"
 
 # Save selection to file
+printf "%s\n" "${SELECTED_PROFILES[@]}" >"$CACHE_FILE"
 printf "%s\n" "${SELECTED_PROFILES[@]}" >"$CACHE_DIR/selected_profiles.txt"

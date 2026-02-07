@@ -1,4 +1,5 @@
 tap 'Felixkratz/formulae'
+tap 'anomalyco/tap'
 
 brew 'ripgrep'
 brew 'fd'
@@ -11,6 +12,7 @@ brew 'eza'
 brew 'sketchybar'
 brew 'borders'
 brew 'lazygit'
+brew 'git-delta'
 brew 'gh'
 brew 'mas'
 brew 'antidote'

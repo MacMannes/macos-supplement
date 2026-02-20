@@ -31,5 +31,6 @@ run stow borders
 run stow leaderkey
 run stow karabiner
 run stow lazygit
+run stow tock
 
 run cd $ORIGINAL_DIR

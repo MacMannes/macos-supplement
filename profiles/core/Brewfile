@@ -32,4 +32,4 @@ cask '1password'
 cask 'zoom'
 cask 'font-hack-nerd-font'
 
-mas 'Color Picker', id: 1545870783
+# mas 'Color Picker', id: 1545870783

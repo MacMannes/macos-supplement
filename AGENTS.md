@@ -1,10 +1,13 @@
 # AGENTS.md
 
-This document provides guidelines for AI coding agents working in the macos-supplement repository.
+This document provides guidelines for AI coding agents working in the
+macos-supplement repository.
 
 ## Project Overview
 
-macos-supplement is a macOS setup automation tool built with Bash scripts. It installs Homebrew packages, manages dotfiles, and configures a fresh macOS installation using a profile-based system.
+macos-supplement is a macOS setup automation tool built with Bash scripts.
+It installs Homebrew packages, manages dotfiles, and configures a fresh macOS
+installation using a profile-based system.
 
 ## Project Structure
 
@@ -54,23 +57,27 @@ bash ./install-dotfiles.sh
 Since this is a shell script project without a formal test suite:
 
 1. **Test a specific script**: Run it directly with bash
+
    ```bash
    bash ./install-brew.sh
    ```
 
 2. **Test with dry-run**: Set DRY_RUN=1 environment variable
+
    ```bash
    export DRY_RUN=1
    bash ./install-brew.sh
    ```
 
 3. **Test profile installation**: Manually select profiles first
+
    ```bash
    bash ./select-profiles.sh
    bash ./install-profiles.sh
    ```
 
 4. **Verify script syntax**: Use shellcheck if available
+
    ```bash
    shellcheck *.sh
    ```
@@ -88,10 +95,12 @@ Since this is a shell script project without a formal test suite:
 
 1. **Shebang**: Always use `#!/bin/bash` as the first line
 2. **Sourcing**: Source dependencies at the top of each script
+
    ```bash
    source ./colors.sh
    source ./functions.sh
    ```
+
 3. **Error handling**: Use the `run()` function for commands that should exit on failure
 4. **Indentation**: Use 4 spaces (not tabs)
 5. **Line endings**: Unix (LF)
@@ -102,11 +111,14 @@ Since this is a shell script project without a formal test suite:
    - Use SCREAMING_SNAKE_CASE for constants and exported variables: `DRY_RUN`, `ROOT_DIR`, `CACHE_FILE`
    - Use lowercase for local variables: `end`, `elapsed`, `status`
 2. **Quoting**: Always quote variables to prevent word splitting
+
    ```bash
    "$VARIABLE"           # Good
    $VARIABLE             # Avoid
    ```
+
 3. **Arrays**: Use proper array syntax (Bash 3 compatible)
+
    ```bash
    ARRAY=("item1" "item2")
    "${ARRAY[@]}"         # Expand all elements
@@ -116,11 +128,13 @@ Since this is a shell script project without a formal test suite:
 
 1. **Function naming**: Use snake_case: `run_script()`, `clone_or_update()`, `done_step()`
 2. **Local variables**: Declare with `local` keyword
+
    ```bash
    function_name() {
        local var="value"
    }
    ```
+
 3. **Return values**: Use exit codes (0 for success, non-zero for failure)
 
 ### Output and Messaging
@@ -139,6 +153,7 @@ run command args                     # Executes and exits on failure
 ### Control Flow
 
 1. **Conditionals**: Use `[[ ]]` for tests (not `[ ]`)
+
    ```bash
    if [[ -f "$FILE" ]]; then
        # do something
@@ -146,11 +161,12 @@ run command args                     # Executes and exits on failure
    ```
 
 2. **Command existence checks**:
+
    ```bash
    if command -v brew >/dev/null 2>&1; then
        # brew exists
    fi
-   
+
    # Alternative style also used:
    if which gum >/dev/null 2>&1; then
        # gum exists
@@ -158,6 +174,7 @@ run command args                     # Executes and exits on failure
    ```
 
 3. **Exit on error**: Use `|| exit 1` or the `run()` function
+
    ```bash
    cd "${PROFILE_DIR}" || exit 1
    run brew install package
@@ -166,6 +183,7 @@ run command args                     # Executes and exits on failure
 ### Comments
 
 1. **Section headers**: Use comment blocks with `#` symbols
+
    ```bash
    ########################################
    # SECTION NAME
@@ -173,14 +191,16 @@ run command args                     # Executes and exits on failure
    ```
 
 2. **Inline comments**: Place above code or at end of line with spacing
+
    ```bash
    # This is what we're doing
    command
-   
+
    command  # Inline explanation
    ```
 
 3. **Dependencies**: Document at top of file
+
    ```bash
    # dependency: source colors.sh first!
    ```
@@ -230,6 +250,7 @@ run command args                     # Executes and exits on failure
 ## Common Patterns
 
 ### Checking if a tool exists
+
 ```bash
 if command -v tool >/dev/null 2>&1; then
     msg "tool found — skipping install…"
@@ -240,11 +261,13 @@ fi
 ```
 
 ### Running a subscript
+
 ```bash
 run_script "./install-brew.sh" "Installing Homebrew"
 ```
 
 ### Conditional execution based on dry-run
+
 ```bash
 if [ $DRY_RUN -eq 1 ]; then
     msg "Would run: $command"

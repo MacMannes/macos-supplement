@@ -3,5 +3,6 @@ brew 'colima'
 brew 'docker'
 brew 'lazydocker'
 brew 'docker-compose'
+brew 'azure-cli'
 
 cask 'jetbrains-toolbox'

@@ -23,6 +23,7 @@ brew 'btop'
 brew 'anomalyco/tap/opencode'
 brew 'difftastic'
 brew 'tock'
+brew 'posting'
 
 cask 'ghostty'
 cask 'nikitabobko/tap/aerospace'

@@ -32,5 +32,7 @@ run stow leaderkey
 run stow karabiner
 run stow lazygit
 run stow tock --adopt
+run stow git
+run stow posting
 
 run cd $ORIGINAL_DIR

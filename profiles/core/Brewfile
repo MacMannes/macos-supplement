@@ -27,6 +27,7 @@ brew 'difftastic'
 brew 'tock'
 brew 'posting'
 brew 'presenterm'
+brew 'weasyprint'
 
 cask 'ghostty'
 cask 'nikitabobko/tap/aerospace'

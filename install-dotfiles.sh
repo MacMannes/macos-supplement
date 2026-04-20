@@ -34,5 +34,6 @@ run stow lazygit
 run stow tock --adopt
 run stow git
 run stow posting
+run stow ripgrep
 
 run cd $ORIGINAL_DIR

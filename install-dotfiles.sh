@@ -35,5 +35,6 @@ run stow tock --adopt
 run stow git
 run stow posting
 run stow ripgrep
+run stow yazi
 
 run cd $ORIGINAL_DIR

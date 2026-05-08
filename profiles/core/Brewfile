@@ -29,6 +29,7 @@ brew 'presenterm'
 brew 'weasyprint'
 brew 'uv'
 brew 'television'
+brew 'yazi'
 
 cask 'ghostty'
 cask 'nikitabobko/tap/aerospace'

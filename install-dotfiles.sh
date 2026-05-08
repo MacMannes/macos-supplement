@@ -36,5 +36,6 @@ run stow git
 run stow posting
 run stow ripgrep
 run stow yazi
+run stow --target="$HOME" pi
 
 run cd $ORIGINAL_DIR

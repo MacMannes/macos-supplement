@@ -30,6 +30,7 @@ brew 'weasyprint'
 brew 'uv'
 brew 'television'
 brew 'yazi'
+brew 'sevenzip'
 
 cask 'ghostty'
 cask 'nikitabobko/tap/aerospace'

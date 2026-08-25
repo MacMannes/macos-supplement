@@ -4,4 +4,4 @@ brew 'lazydocker'
 brew 'docker-compose'
 brew 'azure-cli'
 
-cask 'jetbrains-toolbox'
+cask 'jetbrains-toolbox', trusted: true

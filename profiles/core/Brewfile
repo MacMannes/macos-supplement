@@ -1,5 +1,5 @@
-tap 'Felixkratz/formulae'
-tap 'anomalyco/tap'
+tap 'Felixkratz/formulae', trusted: true
+tap 'anomalyco/tap', trusted: true
 
 brew 'ripgrep'
 brew 'fd'
@@ -9,7 +9,6 @@ brew 'node'
 brew 'zoxide'
 brew 'stow'
 brew 'eza'
-brew 'sketchybar'
 brew 'borders'
 brew 'lazygit'
 brew 'tree-sitter-cli'
@@ -32,13 +31,13 @@ brew 'television'
 brew 'yazi'
 brew 'sevenzip'
 
-cask 'ghostty'
-cask 'nikitabobko/tap/aerospace'
-cask 'karabiner-elements'
-cask 'leader-key'
-cask '1password'
-cask 'zoom'
-cask 'font-hack-nerd-font'
-cask 'blackhole-2ch'
+cask 'ghostty', trusted: true
+cask 'nikitabobko/tap/aerospace', trusted: true
+cask 'karabiner-elements', trusted: true
+cask 'leader-key', trusted: true
+cask '1password', trusted: true
+cask 'zoom', trusted: true
+cask 'font-hack-nerd-font', trusted: true
+cask 'blackhole-2ch', trusted: true
 
 # mas 'Color Picker', id: 1545870783

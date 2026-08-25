@@ -1,1 +1,1 @@
-cask 'calibre'
+cask 'calibre', trusted: true

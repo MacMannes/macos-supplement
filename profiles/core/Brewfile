@@ -38,7 +38,6 @@ cask 'leader-key', trusted: true
 cask '1password', trusted: true
 cask 'zoom', trusted: true
 cask 'font-hack-nerd-font', trusted: true
-cask 'blackhole-2ch', trusted: true
 cask 'darrenburns/homebrew/posting@beta', trusted: true
 
 # mas 'Color Picker', id: 1545870783

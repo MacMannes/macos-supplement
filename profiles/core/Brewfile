@@ -9,7 +9,6 @@ brew 'node'
 brew 'zoxide'
 brew 'stow'
 brew 'eza'
-brew 'borders'
 brew 'lazygit'
 brew 'tree-sitter-cli'
 brew 'git-delta'
@@ -32,7 +31,6 @@ brew 'yazi'
 brew 'sevenzip'
 
 cask 'ghostty', trusted: true
-cask 'nikitabobko/tap/aerospace', trusted: true
 cask 'karabiner-elements', trusted: true
 cask 'leader-key', trusted: true
 cask '1password', trusted: true
